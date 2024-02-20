@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Aug 13 11:28:30 2022
-?
+
 @author: HUAYX179
 """
 import json
@@ -9,6 +9,9 @@ import requests
 import pandas as pd
 from datetime import datetime
 
+
+
+#API Request setup
 def holman_ari():
     AUTH_API_ENDPOINT = "https://customer-experience-api.arifleet.com/v1/users/authenticaxx"
     TEST_API_ENDPOINT = "https://customer-experience-api.arifleet.com/v1/fuels?transDateCoxx=3"
@@ -55,12 +58,15 @@ def holman_ari():
     
     print(test)'''
     '''print(response.status_code)'''
-    
+
+
+    #Make sure the result files include the time of the generation
     current_datetime_Fuel=datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     str_current_datetime_Fuel=str(current_datetime_Fuel)
     Filename_Fuel="Fuel "+str_current_datetime_Fuel+".csv"
     
-    
+
+    #Iteration is utilized to get the full data from mutiple pages of each API endpoint. Transform Json format to regular data frame
     p=int(p) 
     
     test_1=[]
